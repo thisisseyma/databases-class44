@@ -12,6 +12,7 @@ connection.connect((err) => {
   console.log("Connected to the database!");
 });
 
+// Query 1: Select countries with a population greater than 8 million
 connection.query(
   `SELECT Name FROM Country WHERE Population > 8000000`,
   (err, results) => {
@@ -21,6 +22,7 @@ connection.query(
   }
 );
 
+// Query 2: Select countries with "land" in their names
 connection.query(
   `SELECT Name FROM Country WHERE Name LIKE '%land%'`,
   (err, results) => {
@@ -30,6 +32,7 @@ connection.query(
   }
 );
 
+// Query 3: Select cities with a population between 500K and 1M
 connection.query(
   `SELECT Name FROM City WHERE Population BETWEEN 500000 AND 1000000`,
   (err, results) => {
@@ -39,6 +42,7 @@ connection.query(
   }
 );
 
+// Query 4: Select countries located in Europe
 connection.query(
   `SELECT Name FROM Country WHERE Continent = 'Europe'`,
   (err, results) => {
@@ -48,6 +52,7 @@ connection.query(
   }
 );
 
+// Query 5: Select all countries ordered by surface area in descending order
 connection.query(
   `SELECT Name FROM Country ORDER BY SurfaceArea DESC`,
   (err, results) => {
@@ -59,6 +64,7 @@ connection.query(
   }
 );
 
+// Query 6: Select cities in the Netherlands (country code 'NLD')
 connection.query(
   `SELECT Name FROM City WHERE CountryCode = 'NLD'`,
   (err, results) => {
@@ -68,6 +74,7 @@ connection.query(
   }
 );
 
+// Query 7: Select population of the city Rotterdam
 connection.query(
   `SELECT Population FROM City WHERE Name ='Rotterdam'`,
   (err, results) => {
@@ -77,6 +84,7 @@ connection.query(
   }
 );
 
+// Query 8: Select top 10 countries by surface area
 connection.query(
   `SELECT Name FROM Country ORDER BY SurfaceArea DESC LIMIT 10`,
   (err, results) => {
@@ -86,6 +94,7 @@ connection.query(
   }
 );
 
+// Query 9: Select top 10 most populated cities
 connection.query(
   `SELECT Name FROM City ORDER BY Population DESC LIMIT 10`,
   (err, results) => {
@@ -95,6 +104,7 @@ connection.query(
   }
 );
 
+// Query 10: Calculate the total population of the world
 connection.query(
   `SELECT SUM(Population) as totalPopulation FROM Country`,
   (err, results) => {
